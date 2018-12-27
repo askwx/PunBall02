@@ -9,7 +9,8 @@ public class Score : MonoBehaviour
     //スコアを表示するテキスト
     private GameObject scoreText;
     private int score = 0; //スコア計算用変数
-    public void AddScore(){
+    public void AddScore()
+    {
         this.score += 10;
     }
 
@@ -17,17 +18,18 @@ public class Score : MonoBehaviour
     void Start()
     {
 
-    
+
         score = 0;
         //scoreの文字を表示させる。find→getcomponent
         this.scoreText = GameObject.Find("Score");
         this.scoreText.GetComponent<Text>().text = "score";
-    }
-   
 
-        //衝突時に呼ばれる関数
-        void OnCollisionEnter(Collision other)
-        {
+    }
+
+
+    //衝突時に呼ばれる関数
+    void OnCollisionEnter(Collision other)
+    {
         //ターゲット名を取得
         string targetTag = other.gameObject.tag;
 
@@ -47,13 +49,16 @@ public class Score : MonoBehaviour
 
         }
 
-   
+
         //スコアを表示？
         scoreText.GetComponent<Text>().text = "Score:" + score.ToString("D3");
 
 
 
     }
+        
     }
+
+
 
 
